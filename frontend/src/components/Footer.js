@@ -11,3 +11,6 @@ function Footer() {
 }
 
 export default Footer;
+cd frontend
+npm install
+npm start
