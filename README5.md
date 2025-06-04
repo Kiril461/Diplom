@@ -13,3 +13,4 @@
    ```bash
    git clone https://github.com/yourusername/library-website.git
    cd library-website
+   docker-compose up -d
