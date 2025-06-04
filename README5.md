@@ -13,13 +13,3 @@
    ```bash
    git clone https://github.com/yourusername/library-website.git
    cd library-website
-   cd frontend
-npm install
-npm start
-cd backend
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan serve
-docker-compose up -d
