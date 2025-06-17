@@ -1,6 +1,7 @@
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=library
-DB_USERNAME=root
-DB_PASSWORD=
+cd backend                  # Перейти в папку backend
+composer install           # Встановити всі залежності проекту
+cp .env.example .env       # Створити копію файлу .env.example як .env
+# Відкрий файл .env та налаштуй параметри (DB, Mailgun тощо) перед наступним кроком
+php artisan key:generate   # Згенерувати унікальний ключ додатку
+php artisan migrate --seed # Запустити міграції та посіяти початкові дані в базу
+php artisan serve          # Запустити локальний сервер для тестування проекту
