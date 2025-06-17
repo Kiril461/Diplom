@@ -1,7 +1,6 @@
-cd backend
-composer install
-cp .env.example .env
-# Налаштуйте .env (DB, Mailgun)
-php artisan key:generate
-php artisan migrate --seed
-php artisan serve
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=library
+DB_USERNAME=root
+DB_PASSWORD=
