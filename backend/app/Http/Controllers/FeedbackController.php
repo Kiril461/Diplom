@@ -8,13 +8,17 @@ class FeedbackController extends Controller
 {
     public function store(Request $request)
     {
-        $request->validate([
+        // Валідація вхідних даних
+        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'message' => 'required|string',
         ]);
 
-        Feedback::create($request->all());
+        // Створення запису з валідованих даних
+        Feedback::create($validatedData);
+
+        // Повернення відповіді про успішне створення
         return response()->json(['message' => 'Feedback submitted successfully'], 201);
     }
 }
