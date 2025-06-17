@@ -1,9 +1,24 @@
 <?php
-namespace App\Models;
+namespace App\Http\Controllers;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Feedback;
+use Illuminate\Http\Request;
 
-class Feedback extends Model
+class FeedbackController extends Controller
 {
-    protected $fillable = ['name', 'email', 'message'];
+    public function store(Request $request)
+    {
+        // Валідація вхідних даних
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string',
+        ]);
+
+        // Створення запису з валідованих даних
+        Feedback::create($validatedData);
+
+        // Повернення відповіді про успішне створення
+        return response()->json(['message' => 'Feedback submitted successfully'], 201);
+    }
 }
