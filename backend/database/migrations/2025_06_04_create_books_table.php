@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,7 +14,7 @@ class CreateBooksTable extends Migration
             $table->string('author');
             $table->string('isbn')->unique();
             $table->string('category');
-            $table->integer('year');
+            $table->unsignedSmallInteger('year'); // Краще використати unsignedSmallInteger для року
             $table->string('status')->default('available');
             $table->timestamps();
         });
